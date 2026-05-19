@@ -9,6 +9,12 @@
 
     <h1>MyCoin Blockchain</h1>
 
+    {% if valid %}
+    <p class="valid"> Blockchain valide</p>
+    {% else %}
+    <p class="invalid"> Blockchain compromise</p>
+    {% endif %}
+
     <div class="wallets">
     <h2>Wallets</h2>
         <h2>Créer un wallet</h2>

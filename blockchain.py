@@ -67,3 +67,16 @@ class Blockchain:
 
         return None
     
+    def is_valid(self):
+        for i in range(1, len(self.chain)):
+            bloc_actuel = self.chain[i]
+            bloc_precedent = self.chain[i - 1]
+
+            # Vérifie que le hash actuel est correct
+            if bloc_actuel.hash != bloc_actuel.calculer_hash():
+                return False
+
+            # Vérifie le lien entre les blocs
+            if bloc_actuel.prev_hash != bloc_precedent.hash:
+                return False
+        return True
