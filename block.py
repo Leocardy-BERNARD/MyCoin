@@ -2,7 +2,6 @@
 import hashlib
 import datetime
 
-
 class Block:
     """Un bloc de la blockchain MyCoin."""
 

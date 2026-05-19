@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>MyCoin Blockchain</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>MyCoin Blockchain</h1>
+
+    <div class="wallets">
+    <h2>Wallets</h2>
+        <h2>Créer un wallet</h2>
+        <form action="/create_wallet" method="POST">
+            <input type="text" name="username" placeholder="Nom utilisateur" required>
+            <input type="number" name="balance" placeholder="Solde initial" required>
+            <button type="submit">Créer Wallet</button>
+        </form>
+
+    {% for user, balance in wallets.items() %}
+        <p>{{ user }} : {{ balance }} MyCoin</p>
+    {% endfor %}
+    </div>
+
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form action="/send" method="POST">
+
+    <select name="sender" required>
+        <option value="">Choisir expéditeur</option>
+        {% for user in wallets.keys() %}
+            <option value="{{ user }}">{{ user }}</option>
+        {% endfor %}
+    </select>
+
+    <select name="receiver" required>
+        <option value="">Choisir destinataire</option>
+        {% for user in wallets.keys() %}
+            <option value="{{ user }}">{{ user }}</option>
+        {% endfor %}
+    </select>
+
+    <input type="number" name="amount" placeholder="Montant" required>
+
+    <button type="submit">Envoyer MyCoin</button>
+</form>
+
+    <div class="chain">
+        {% for bloc in blockchain %}
+        <div class="block">
+            <h2>Bloc #{{ bloc.index }}</h2>
+            <p><strong>Date :</strong> {{ bloc.timestamp }}</p>
+            <p><strong>Transaction :</strong> {{ bloc.data }}</p>
+            <p><strong>Hash précédent :</strong> {{ bloc.prev_hash }}</p>
+            <p><strong>Hash :</strong> {{ bloc.hash }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

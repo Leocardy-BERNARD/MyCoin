@@ -1,0 +1,70 @@
+body {
+    background: #0d1117;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #00ff99;
+}
+
+button {
+    background: #00ff99;
+    border: none;
+    padding: 15px 25px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.chain {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.block {
+    background: #161b22;
+    padding: 20px;
+    border-radius: 12px;
+    width: 80%;
+    margin: auto;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(0,255,153,0.2);
+    word-wrap: break-word;
+}
+form {
+    margin-bottom: 30px;
+}
+
+input {
+    padding: 12px;
+    margin: 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+.wallets {
+    background: #161b22;
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,255,153,0.2);
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+select {
+    padding: 12px;
+    margin: 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    width: 260px;
+}
